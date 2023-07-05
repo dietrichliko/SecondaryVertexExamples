@@ -6,7 +6,6 @@ import pathlib
 
 import click
 import ROOT
-import ROOT.std as std
 
 logging.basicConfig(
     format="%(asctime)s - %(levelname)8s - %(message)s",
@@ -15,17 +14,6 @@ logging.basicConfig(
 )
 
 log = logging.getLogger(__name__)
-
-GEN_PART_VARS = [
-    "GenPart_genPartIdxMother",
-    "GenPart_pdgId",
-    # "GenPart_pt",
-    # "GenPart_eta",
-    # "GenPart_phi",
-    # "GenPart_mass",
-    # "GenPart_status",
-    # "GenPart_statusFlags",
-]
 
 
 @click.command
@@ -51,7 +39,7 @@ def main(url: str, tree: str, first: int, last: int, debug: bool) -> None:
     input = ROOT.TFile.Open(url)
     ROOT.gErrorIgnoreLevel = -1
     t = input.Get(tree)
-    if t is None:
+    if t == None:  # noqa: E711
         log.fatal("Could not find tree %s", tree)
         sys.exit()
 
@@ -59,10 +47,9 @@ def main(url: str, tree: str, first: int, last: int, debug: bool) -> None:
     df = df.Range(first, last)
 
     log.debug("DefinePrintGenPart")
-    ROOT.DefinePrintGenPart(df)
-
-
-#    df.Define("dummy", f'PrintGenPart({",".join(GEN_PART_VARS)})')
+    #   df.Foreach("PrintGenPart(GenPart_genPartIdxMother,GenPart_pdgId,GenPart_pt,GenPart_eta,GenPart_phi,GenPart_mass,GenPart_status,GenPart_statusFlags)")"
+    #   Foreach python bindings do not work. have to do it in C++
+    ROOT.ForeachPrintGenPart(df)
 
 
 if __name__ == "__main__":

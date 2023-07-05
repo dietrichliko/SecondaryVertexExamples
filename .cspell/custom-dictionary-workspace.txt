@@ -1,9 +1,14 @@
 # Custom Dictionary Words
 AODAP
+cout
 dlen
+endl
 Histo
 histos
+ifndef
 levelname
 liko
 madgraph
+Neutralino
+neutralinos
 prhussai

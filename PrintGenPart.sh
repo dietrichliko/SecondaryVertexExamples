@@ -1,4 +1,5 @@
 #!/bin/bash +x
-
-./PrintGenPart.py --debug --first 0 --last 3 \
-   root://eos.grid.vbc.ac.at//store/user/prhussai/SMS-T2tt_genMET-100_genHT200_mStop-500_mLSP-470_TuneCP5_13TeV-madgraphMLM-pythia8/crab_RunIISummer20UL16MiniAODAPVv2-106X_mcRun2_asymptotic_preVFP_v11-v2_privateUL16nanoAPVv9/220302_215308/0000/nanoAOD_9.root
+stop_500_420="/store/user/prhussai/SMS-T2tt_genMET-100_genHT200_mStop-500_mLSP-420_TuneCP5_13TeV-madgraphMLM-pythia8/crab_RunIISummer20UL16MiniAODAPVv2-106X_mcRun2_asymptotic_preVFP_v11-v2_privateUL16nanoAPVv9/220302_215225/0000/nanoAOD_1.root"
+stop_400_380="/store/user/prhussai/SMS-T2tt-4bd_genMET-100_genHT200_mStop-400_mLSP-380_TuneCP5_LLStop_13TeV-madgraphMLM-pythia8/crab_RunIISummer20UL16MiniAODAPVv2-106X_mcRun2_asymptotic_preVFP_v11-v1_privateUL16nanoAPVv9/230504_133326/0000/nanoAOD_1.root"
+stop_500_470="/store/user/prhussai/SMS-T2tt_genMET-100_genHT200_mStop-500_mLSP-470_TuneCP5_13TeV-madgraphMLM-pythia8/crab_RunIISummer20UL16MiniAODAPVv2-106X_mcRun2_asymptotic_preVFP_v11-v2_privateUL16nanoAPVv9/220302_215308/0000/nanoAOD_9.root"
+./PrintGenPart.py --debug --first 0 --last 5 "root://eos.grid.vbc.ac.at/$stop_500_420"
